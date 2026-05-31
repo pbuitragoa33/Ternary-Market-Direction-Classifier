@@ -132,13 +132,13 @@ if __name__ == "__main__":
     # - iShares Russell 2000 ETF (IWM)
     # - ETF Invesco DB US Dollar Index Bullish Fund (UUP)
     # - Strategy (MSTR) → a.k.a. MicroStrategy 
-    # - Ethereum (ETH-USD)
+    # - S&P 500 Fund (SPY)
 
 
     # Let's bring them in 2 batches
 
     assets_batch1 = ["^VIX", "GC=F", "CL=F", "TLT", "RSP"]
-    assets_batch2 = ["^TNX", "IWM", "UUP", "MSTR", "ETH-USD"]
+    assets_batch2 = ["^TNX", "IWM", "UUP", "MSTR", "SPY"]
 
     data_yf_list = []
 
