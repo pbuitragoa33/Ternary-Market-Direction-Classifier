@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 import tempfile
 import re
 import fredapi
+import time
 
 
 # Constants and important definitions
@@ -59,6 +60,15 @@ def get_data_yf(asset, start = START_DATE, end = END_DATE, frequency = FREQUENCY
     data = pd.DataFrame(data.reset_index())
 
     data.columns = [str(col).lower() for col in data.columns]
+
+    if "index" in data.columns and "date" not in data.columns:
+
+        data = data.rename(columns = {"index": "date"})
+
+    if "date" not in data.columns and len(data.columns) > 0:
+
+        first_col = data.columns[0]
+        data = data.rename(columns = {first_col: "date"})
 
     return data
 
@@ -174,6 +184,8 @@ if __name__ == "__main__":
 
         data_fred_list.append(get_data_fred(serie))
 
+        time.sleep(5)
+
     data_fred = data_fred_list[0]
 
     for df in data_fred_list[1:]:
@@ -223,7 +235,3 @@ if __name__ == "__main__":
             print("--" * 20)
 
             print("Done, data uploaded to S3 successfully")
-
-            # Remove the temporary file
-
-            os.remove(temp_file_path)
