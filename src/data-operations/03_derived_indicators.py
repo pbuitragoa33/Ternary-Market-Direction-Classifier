@@ -456,14 +456,14 @@ if __name__ == "__main__":
     # Add the indicators to dataframe
 
     def add_indicators(df, 
-                    period_sma = 50,
-                    period_sma2 = 200,
-                    period_ema = 50,
-                    period_ema2 = 200,
-                    period_hma = 50,
-                    period_hma2 = 200,
+                    period_sma = 20,
+                    period_sma2 = 50,
+                    period_ema = 20,
+                    period_ema2 = 50,
+                    period_hma = 20,
+                    period_hma2 = 50,
                     period_momentum = 20,
-                    period_momentum2 = 100,
+                    period_momentum2 = 50,
                     period_rsi = 14,
                     period_stochastic = 14,
                     period_williamsR = 21,
@@ -475,23 +475,23 @@ if __name__ == "__main__":
 
         # SSMA50 and SSMA200
 
-        df['Scaled_SMA50'] = scaled_SMA(df, period = period_sma)
-        df['Scaled_SMA200'] = scaled_SMA(df, period = period_sma2)
+        df['Scaled_SMA20'] = scaled_SMA(df, period = period_sma)
+        df['Scaled_SMA50'] = scaled_SMA(df, period = period_sma2)
 
         # SEMA50 and SEMA200
 
-        df['Scaled_EMA50'] = scaled_EMA(df, period = period_ema)
-        df['Scaled_EMA200'] = scaled_EMA(df, period = period_ema2)
+        df['Scaled_EMA20'] = scaled_EMA(df, period = period_ema)
+        df['Scaled_EMA50'] = scaled_EMA(df, period = period_ema2)
 
         # SHMA50 and SHMA200
 
-        df['Scaled_HMA50'] = scaled_HMA(df, period = period_hma)
-        df['Scaled_HMA200'] = scaled_HMA(df, period = period_hma2)
+        df['Scaled_HMA20'] = scaled_HMA(df, period = period_hma)
+        df['Scaled_HMA50'] = scaled_HMA(df, period = period_hma2)
 
         # Momentum
 
         df['Momentum_20p'] = momentum(df, period = period_momentum)
-        df['Momentum_100p'] = momentum(df, period = period_momentum2)
+        df['Momentum_50p'] = momentum(df, period = period_momentum2)
 
         # RSI
 
