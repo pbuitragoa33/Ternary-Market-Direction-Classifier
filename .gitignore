@@ -425,3 +425,6 @@ env_TMDC/
 venv/
 env/
 .env/
+
+# Metadata directoies for Python packages
+ternary_market_direction_classifier.egg-info
