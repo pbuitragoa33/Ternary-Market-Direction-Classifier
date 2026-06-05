@@ -107,3 +107,28 @@ There are 4 categorical features in the dataset, however, there are some importa
 * Future_Return > 1.0% → Bullish
 * Future_Return < -1.0% → Bearish
 * The rest of the cases → Neutral (between -1.0% and 1.0%)
+
+
+## Target Variable vs Categorical Features
+
+1. **Relative_Volume_Category & Target**: The pattern is recognizable → As relative volume increases, Neutral falls and Bullish rises. In the "Very High" category, the Bullish class suppasses the Neutral class, which is a sign that the volume confirms the movement, specifically, the bullish ones. In contrast, the volume won't confirm the price falls. 
+
+2. **Day_Type & Target**: It's not very telling.
+
+3. **Weekly_Breakout & Target**: Here is a key-counterintuitive insight → the "Bullish Breakouts" are followed of bullish outcomes and with more frequency tan the "Bearish Breakouts". Basically, the "Bearish Breakouts" are not really berakots, they are more like False Breakouts (fakeouts) that are followed by a quick recovery and a bullish outcome. In a bullish regime, the bearish breakouts does not follow through, they get bought back and the market goes up.
+
+**Note**: The Bearish class in the target is the less common across the dataset, so it's going to be hard for the model to predict it. In addition, these bullish environment and artifial-maken bull markets in the center of that, will be a challenge to find those bearish periods hidden between that bull sentiment.
+
+
+## Correlation Analysis
+
+Both the Pearson correlation and the Spearman correlation show a strong positive correlation between many features → Multicollinearity is going to be a problem for the model, so it's going to be necessary to perform feature selection or dimensionality reduction techniques to mitigate that issue or scaled some feature to make them more comparable. Also, changing the close price to returns could be a good idea to mitigate the problem. 
+
+
+## MI, RF, SHAP and Autocorrelation (Ljung-Box) Analysis
+
+* **MI**: Indicates data leakage with the variables `Unnamed: 0_x`, `Unnamed: 0_y`, `Unnamed: 0`, which are artifacts from the merging process. These should be dropped to prevent data leakage. Not much else to say about the MI results, as they are not very informative due to the presence of these artifacts.
+
+* **RF and SHAP**: The forest doesn't prioritize the artifacts that produce sata leakake. Therefore, other columns like `Norm_ATR`, ``Scaled_Upper_Bollinger`, `Scaled_Lower_Bollinger`, `Scaled_Upper_Keltner`, `Scaled_Lower_Keltner`, `RSI`, `Stoch_K`, `Stoch_D`, `WilliamsR`, `OBV` and `ILV` were weighted as the most impportant features. The model found that in order to predict the direction of the market, it starts to predict if a movement could happen. This reinforces the idea of adding a feature based on a Hidden Markov Model (HMM) to predict the regime of the market (bullish, bearish or neutral) and use that as an input for the model.
+
+* **Autocorrelation (Ljung-Box)**: Values near 1.0 are normal because we are talking about financial time series. The autocorrelation is high despite of the fact that the return are unpredictable (autocorrelation doesn't mean predictability). Respect to the Ljung-Box test, all the p-values are 0.0, that means that we reject the null hypothesis, in other words, there is no autocorrelation until lag 20. This is a expected result.
