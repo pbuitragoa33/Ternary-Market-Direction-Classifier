@@ -698,9 +698,10 @@ if __name__ == "__main__":
 
     # Add the identified regimes as new features. Labels are now ordered by mean return:
     # Regime_0 = most bearish ... Regime_2 = most bullish.
+    # Change the regime labels in All_Features because it captures better the regime differences (view EDA post HMM)
 
     state_mapping_pca = {0: "PCA_Regime_0", 1: "PCA_Regime_1", 2: "PCA_Regime_2"}
-    state_mapping_all = {0: "All_Features_Regime_0", 1: "All_Features_Regime_1", 2: "All_Features_Regime_2"}
+    state_mapping_all = {0: "Volatility:Expansion_Regime", 1: "Consolidation_Regime", 2: "Bullish_Regime"}
 
     regimes_pca = pd.concat([df_train_pca_regimes["HMM_Regimes"],
                              df_validation_pca_regimes["HMM_Regimes"],
