@@ -602,21 +602,17 @@ def execute_pipeline(key_entry = S3_KEY_SILVER,
 
     print(f"Dropped {rows_before - len(df)} rows with NA values. Remaining rows: {len(df)}")
 
-    # 5. Cleanup the column names
-
-    df = cleanup_columns(df)
-
-    # 6. Temporal split (train/validation/test)
+    # 5. Temporal split (train/validation/test)
 
     df_train, df_validation, df_test = temporal_split(df)
 
-    # 7. Apply the variable split (X/y) for each set
+    # 6. Apply the variable split (X/y) for each set
 
     X_train, y_train = split_X_y(df_train)
     X_validation, y_validation = split_X_y(df_validation)
     X_test, y_test = split_X_y(df_test)
 
-    # 8. Apply the ML pipeline
+    # 7. Apply the ML pipeline
 
     pipeline_ML = build_pipeline_ML()
 
@@ -624,6 +620,12 @@ def execute_pipeline(key_entry = S3_KEY_SILVER,
     X_train = pipeline_ML.transform(X_train)
     X_validation = pipeline_ML.transform(X_validation)
     X_test = pipeline_ML.transform(X_test)
+
+    # 8. Cleanup the column names
+
+    X_train = cleanup_columns(X_train)
+    X_validation = cleanup_columns(X_validation)
+    X_test = cleanup_columns(X_test)
 
     # 9. Save the transformed data back to S3 (in gold folder)
 
