@@ -11,6 +11,7 @@
 # Libraries
 
 import os
+import re
 import tempfile
 import boto3
 import joblib
@@ -525,9 +526,9 @@ def temporal_split(df, train_end = TRAIN_END_DATE, validation_end = VALIDATION_E
     df_validation = df.loc[pd.Timestamp(train_end) + pd.Timedelta(days = 1):validation_end]
     df_test = df.loc[pd.Timestamp(validation_end) + pd.Timedelta(days = 1):]
 
-    print(f"    - Train: {df_train.shape[0]} filas ({df_train.index.min().date()} -> {df_train.index.max().date()})")
-    print(f"    - Val:   {df_validation.shape[0]} filas ({df_validation.index.min().date()} -> {df_validation.index.max().date()})")
-    print(f"    - Test:  {df_test.shape[0]} filas ({df_test.index.min().date()} -> {df_test.index.max().date()})")
+    print(f"    - Train: {df_train.shape[0]} filas ({df_train.index.min().date()} → {df_train.index.max().date()})")
+    print(f"    - Val:   {df_validation.shape[0]} filas ({df_validation.index.min().date()} → {df_validation.index.max().date()})")
+    print(f"    - Test:  {df_test.shape[0]} filas ({df_test.index.min().date()} → {df_test.index.max().date()})")
 
     return df_train, df_validation, df_test
 
@@ -550,6 +551,24 @@ def split_X_y(df, target_col = TARGET_COL, target_map = TARGET_MAPPING):
 
     return X, y
 
+
+# ------------------------------------------------------------------------------------------------
+# Cleanup the column names of the training data
+# ------------------------------------------------------------------------------------------------
+
+def cleanup_columns(df):
+
+    clean = {col: re.sub(r"[^0-9a-zA-Z_]+", "_", str(col)).strip("_") for col in df.columns}
+
+    df = df.rename(columns = clean)
+
+    # Inc ase of duplicates after the clean, raise an error
+
+    if df.columns.duplicated().any():
+
+        raise ValueError(f"Column name collision after sanitizing: {df.columns[df.columns.duplicated()].tolist()}")
+
+    return df
 
 # ------------------------------------------------------------------------------------------------
 #                                       Pipeline Execution
@@ -583,17 +602,21 @@ def execute_pipeline(key_entry = S3_KEY_SILVER,
 
     print(f"Dropped {rows_before - len(df)} rows with NA values. Remaining rows: {len(df)}")
 
-    # 5. Temporal split (train/validation/test)
+    # 5. Cleanup the column names
+
+    df = cleanup_columns(df)
+
+    # 6. Temporal split (train/validation/test)
 
     df_train, df_validation, df_test = temporal_split(df)
 
-    # 6. Apply the variable split (X/y) for each set
+    # 7. Apply the variable split (X/y) for each set
 
     X_train, y_train = split_X_y(df_train)
     X_validation, y_validation = split_X_y(df_validation)
     X_test, y_test = split_X_y(df_test)
 
-    # 7. Apply the ML pipeline
+    # 8. Apply the ML pipeline
 
     pipeline_ML = build_pipeline_ML()
 
@@ -602,7 +625,7 @@ def execute_pipeline(key_entry = S3_KEY_SILVER,
     X_validation = pipeline_ML.transform(X_validation)
     X_test = pipeline_ML.transform(X_test)
 
-    # 8. Save the transformed data back to S3 (in gold folder)
+    # 9. Save the transformed data back to S3 (in gold folder)
 
     load_processed_data_to_S3(X_train, key = f"{prefix_output}X_train.csv")
     load_processed_data_to_S3(y_train.to_frame(), key = f"{prefix_output}y_train.csv")
@@ -611,7 +634,7 @@ def execute_pipeline(key_entry = S3_KEY_SILVER,
     load_processed_data_to_S3(X_test, key = f"{prefix_output}X_test.csv")
     load_processed_data_to_S3(y_test.to_frame(), key = f"{prefix_output}y_test.csv")
 
-    # 9. Save the artifacts (local and S3)
+    # 10. Save the artifacts (local and S3)
 
     artifacts = {
         "pipeline_ML": pipeline_ML,
@@ -641,6 +664,8 @@ def execute_pipeline(key_entry = S3_KEY_SILVER,
         "keys_gold": [f"{prefix_output}{n}.csv" for n in ["X_train", "y_train", "X_validation", "y_validation", "X_test", "y_test"]],
         "key_artifacts": key_artifacts
     }
+
+    print("X_train columns:", X_train.columns.tolist())
 
     print("Processing pipeline executed successfully")
 
