@@ -1,0 +1,204 @@
+[
+  {
+    "model": "knn",
+    "best_params": {
+      "n_neighbors": 19,
+      "weights": "uniform",
+      "algorithm": "auto"
+    },
+    "best_f1_macro": 0.35995,
+    "best_accuracy": 0.388994,
+    "f1_macro_std": 0.046695,
+    "n_trials_completed": 500,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 59.3,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "adaboost",
+    "best_params": {
+      "base_estimator": "decision_tree",
+      "base_dt_max_depth": 1,
+      "n_estimators": 465,
+      "learning_rate": 0.11240623315566328
+    },
+    "best_f1_macro": 0.356675,
+    "best_accuracy": 0.403036,
+    "f1_macro_std": 0.039661,
+    "n_trials_completed": 242,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 3606.8,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "decision_tree",
+    "best_params": {
+      "criterion": "gini",
+      "max_depth": 8,
+      "min_samples_leaf": 4,
+      "min_samples_split": 10,
+      "class_weight": "custom"
+    },
+    "best_f1_macro": 0.352296,
+    "best_accuracy": 0.374573,
+    "f1_macro_std": 0.039722,
+    "n_trials_completed": 500,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 122.7,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "lightgbm",
+    "best_params": {
+      "n_estimators": 131,
+      "max_depth": 11,
+      "learning_rate": 0.006318851221239946,
+      "subsample": 0.9209236285912704,
+      "num_leaves": 150,
+      "colsample_bytree": 0.9995378898484051,
+      "class_weight": "none"
+    },
+    "best_f1_macro": 0.346754,
+    "best_accuracy": 0.371157,
+    "f1_macro_std": 0.023147,
+    "n_trials_completed": 500,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 2685.4,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "stacking",
+    "best_params": {
+      "base_combo": "gb_dt",
+      "final_estimator": "decision_tree"
+    },
+    "best_f1_macro": 0.328504,
+    "best_accuracy": 0.351803,
+    "f1_macro_std": 0.027003,
+    "n_trials_completed": 42,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 3601.3,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "random_forest",
+    "best_params": {
+      "n_estimators": 472,
+      "criterion": "gini",
+      "max_depth": 4,
+      "min_samples_leaf": 3,
+      "min_samples_split": 9,
+      "class_weight": "none"
+    },
+    "best_f1_macro": 0.320949,
+    "best_accuracy": 0.367742,
+    "f1_macro_std": 0.042683,
+    "n_trials_completed": 500,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 3354.5,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "xgboost",
+    "best_params": {
+      "n_estimators": 75,
+      "max_depth": 5,
+      "learning_rate": 0.09355540408271755,
+      "subsample": 0.5542452273217061,
+      "colsample_bytree": 0.7806910161623268,
+      "booster": "dart",
+      "reg_lambda": 0.001853819518350367
+    },
+    "best_f1_macro": 0.317857,
+    "best_accuracy": 0.342694,
+    "f1_macro_std": 0.042914,
+    "n_trials_completed": 116,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 3817.5,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "gradient_boosting",
+    "best_params": {
+      "n_estimators": 187,
+      "learning_rate": 0.006677928149251669,
+      "max_depth": 10,
+      "min_samples_leaf": 3
+    },
+    "best_f1_macro": 0.310722,
+    "best_accuracy": 0.33055,
+    "f1_macro_std": 0.023249,
+    "n_trials_completed": 20,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 3861.2,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  },
+  {
+    "model": "voting_hard",
+    "best_params": {
+      "base_estimator": "decision_tree",
+      "base_dt_max_depth": 5
+    },
+    "best_f1_macro": 0.303018,
+    "best_accuracy": 0.349526,
+    "f1_macro_std": 0.050371,
+    "n_trials_completed": 500,
+    "n_trials_pruned": 0,
+    "cv_n_splits": 5,
+    "primary_metric": "f1_macro",
+    "optimization_time_sec": 571.2,
+    "custom_weights": {
+      "0": 2,
+      "1": 1,
+      "2": 1
+    }
+  }
+]

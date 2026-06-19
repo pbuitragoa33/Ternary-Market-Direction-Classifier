@@ -1,0 +1,25 @@
+{
+  "model": "lightgbm",
+  "best_params": {
+    "n_estimators": 131,
+    "max_depth": 11,
+    "learning_rate": 0.006318851221239946,
+    "subsample": 0.9209236285912704,
+    "num_leaves": 150,
+    "colsample_bytree": 0.9995378898484051,
+    "class_weight": "none"
+  },
+  "best_f1_macro": 0.346754,
+  "best_accuracy": 0.371157,
+  "f1_macro_std": 0.023147,
+  "n_trials_completed": 500,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 2685.4,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}

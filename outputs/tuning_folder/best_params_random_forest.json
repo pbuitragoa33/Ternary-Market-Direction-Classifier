@@ -1,0 +1,24 @@
+{
+  "model": "random_forest",
+  "best_params": {
+    "n_estimators": 472,
+    "criterion": "gini",
+    "max_depth": 4,
+    "min_samples_leaf": 3,
+    "min_samples_split": 9,
+    "class_weight": "none"
+  },
+  "best_f1_macro": 0.320949,
+  "best_accuracy": 0.367742,
+  "f1_macro_std": 0.042683,
+  "n_trials_completed": 500,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 3354.5,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}

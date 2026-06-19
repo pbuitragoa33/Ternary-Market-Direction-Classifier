@@ -1,0 +1,20 @@
+{
+  "model": "stacking",
+  "best_params": {
+    "base_combo": "gb_dt",
+    "final_estimator": "decision_tree"
+  },
+  "best_f1_macro": 0.328504,
+  "best_accuracy": 0.351803,
+  "f1_macro_std": 0.027003,
+  "n_trials_completed": 42,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 3601.3,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}
