@@ -4,7 +4,8 @@
     "n_estimators": 187,
     "learning_rate": 0.006677928149251669,
     "max_depth": 10,
-    "min_samples_leaf": 3
+    "min_samples_leaf": 3,
+    "log_loss": "log_loss"
   },
   "best_f1_macro": 0.310722,
   "best_accuracy": 0.33055,
