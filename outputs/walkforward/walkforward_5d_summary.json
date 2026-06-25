@@ -1,0 +1,587 @@
+[
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2727,
+      "std": 0.0608,
+      "min": 0.1529,
+      "max": 0.3657
+    },
+    "accuracy": {
+      "mean": 0.3644,
+      "std": 0.1012,
+      "min": 0.2065,
+      "max": 0.6409
+    },
+    "overfit_gap": {
+      "mean": 0.5947,
+      "std": 0.0637,
+      "min": 0.4916,
+      "max": 0.701
+    },
+    "recall_bearish": {
+      "mean": 0.3444,
+      "std": 0.2951,
+      "min": 0.0161,
+      "max": 0.8913
+    },
+    "recall_neutral": {
+      "mean": 0.1652,
+      "std": 0.2609,
+      "min": 0.0,
+      "max": 0.8333
+    },
+    "recall_bullish": {
+      "mean": 0.5353,
+      "std": 0.356,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "roc_auc_macro": {
+      "mean": 0.5172,
+      "std": 0.0549,
+      "min": 0.4081,
+      "max": 0.6205
+    },
+    "pr_auc_macro": {
+      "mean": 0.3758,
+      "std": 0.0461,
+      "min": 0.3084,
+      "max": 0.4589
+    },
+    "log_loss": {
+      "mean": 1.1659,
+      "std": 0.1014,
+      "min": 0.9727,
+      "max": 1.433
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.1171,
+      "std": 0.0893,
+      "min": -0.0365,
+      "max": 0.2736
+    },
+    "pct_folds_beating_baseline": 0.9375,
+    "model": "lightgbm"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2341,
+      "std": 0.0528,
+      "min": 0.1672,
+      "max": 0.3475
+    },
+    "accuracy": {
+      "mean": 0.3797,
+      "std": 0.0795,
+      "min": 0.2707,
+      "max": 0.5967
+    },
+    "overfit_gap": {
+      "mean": 0.2488,
+      "std": 0.0595,
+      "min": 0.1686,
+      "max": 0.3754
+    },
+    "recall_bearish": {
+      "mean": 0.1537,
+      "std": 0.2569,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "recall_neutral": {
+      "mean": 0.1595,
+      "std": 0.3158,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "recall_bullish": {
+      "mean": 0.6945,
+      "std": 0.3412,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "roc_auc_macro": {
+      "mean": 0.5173,
+      "std": 0.0507,
+      "min": 0.4133,
+      "max": 0.6239
+    },
+    "pr_auc_macro": {
+      "mean": 0.3723,
+      "std": 0.0357,
+      "min": 0.3081,
+      "max": 0.4489
+    },
+    "log_loss": {
+      "mean": 1.0929,
+      "std": 0.0157,
+      "min": 1.0421,
+      "max": 1.1157
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.0785,
+      "std": 0.0668,
+      "min": -0.0225,
+      "max": 0.1885
+    },
+    "pct_folds_beating_baseline": 0.875,
+    "model": "adaboost"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2767,
+      "std": 0.0671,
+      "min": 0.1854,
+      "max": 0.4388
+    },
+    "accuracy": {
+      "mean": 0.3385,
+      "std": 0.0804,
+      "min": 0.2283,
+      "max": 0.5249
+    },
+    "overfit_gap": {
+      "mean": 0.4564,
+      "std": 0.0697,
+      "min": 0.3018,
+      "max": 0.579
+    },
+    "recall_bearish": {
+      "mean": 0.4303,
+      "std": 0.3103,
+      "min": 0.0,
+      "max": 0.913
+    },
+    "recall_neutral": {
+      "mean": 0.1857,
+      "std": 0.155,
+      "min": 0.0,
+      "max": 0.5172
+    },
+    "recall_bullish": {
+      "mean": 0.3733,
+      "std": 0.3135,
+      "min": 0.0484,
+      "max": 1.0
+    },
+    "roc_auc_macro": {
+      "mean": 0.5073,
+      "std": 0.0632,
+      "min": 0.4137,
+      "max": 0.6272
+    },
+    "pr_auc_macro": {
+      "mean": 0.3517,
+      "std": 0.0392,
+      "min": 0.3083,
+      "max": 0.4342
+    },
+    "log_loss": {
+      "mean": 10.7807,
+      "std": 4.9511,
+      "min": 4.3764,
+      "max": 21.5478
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.1211,
+      "std": 0.0967,
+      "min": -0.0116,
+      "max": 0.3467
+    },
+    "pct_folds_beating_baseline": 0.9375,
+    "model": "decision_tree"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.3073,
+      "std": 0.0535,
+      "min": 0.2196,
+      "max": 0.4156
+    },
+    "accuracy": {
+      "mean": 0.357,
+      "std": 0.0489,
+      "min": 0.25,
+      "max": 0.4293
+    },
+    "overfit_gap": {
+      "mean": 0.2676,
+      "std": 0.0489,
+      "min": 0.1699,
+      "max": 0.3298
+    },
+    "recall_bearish": {
+      "mean": 0.3148,
+      "std": 0.1326,
+      "min": 0.0909,
+      "max": 0.541
+    },
+    "recall_neutral": {
+      "mean": 0.2299,
+      "std": 0.2137,
+      "min": 0.0,
+      "max": 0.6207
+    },
+    "recall_bullish": {
+      "mean": 0.4508,
+      "std": 0.2124,
+      "min": 0.1111,
+      "max": 0.7407
+    },
+    "roc_auc_macro": {
+      "mean": 0.4885,
+      "std": 0.0391,
+      "min": 0.4077,
+      "max": 0.5487
+    },
+    "pr_auc_macro": {
+      "mean": 0.3471,
+      "std": 0.0222,
+      "min": 0.3148,
+      "max": 0.3819
+    },
+    "log_loss": {
+      "mean": 1.6814,
+      "std": 0.6292,
+      "min": 1.1532,
+      "max": 3.1277
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.1517,
+      "std": 0.0639,
+      "min": 0.0512,
+      "max": 0.2731
+    },
+    "pct_folds_beating_baseline": 1.0,
+    "model": "knn"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2318,
+      "std": 0.0439,
+      "min": 0.1596,
+      "max": 0.3137
+    },
+    "accuracy": {
+      "mean": 0.3507,
+      "std": 0.0719,
+      "min": 0.2011,
+      "max": 0.4615
+    },
+    "overfit_gap": {
+      "mean": 0.4003,
+      "std": 0.0401,
+      "min": 0.3299,
+      "max": 0.4629
+    },
+    "recall_bearish": {
+      "mean": 0.3118,
+      "std": 0.343,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "recall_neutral": {
+      "mean": 0.1233,
+      "std": 0.302,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "recall_bullish": {
+      "mean": 0.5978,
+      "std": 0.3923,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "roc_auc_macro": {
+      "mean": 0.5346,
+      "std": 0.0463,
+      "min": 0.4362,
+      "max": 0.6142
+    },
+    "pr_auc_macro": {
+      "mean": 0.396,
+      "std": 0.0358,
+      "min": 0.3298,
+      "max": 0.4829
+    },
+    "log_loss": {
+      "mean": 1.1318,
+      "std": 0.0671,
+      "min": 1.045,
+      "max": 1.2442
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.0762,
+      "std": 0.0657,
+      "min": -0.0297,
+      "max": 0.1922
+    },
+    "pct_folds_beating_baseline": 0.875,
+    "model": "random_forest"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2728,
+      "std": 0.0544,
+      "min": 0.1485,
+      "max": 0.3461
+    },
+    "accuracy": {
+      "mean": 0.3417,
+      "std": 0.059,
+      "min": 0.2065,
+      "max": 0.4254
+    },
+    "overfit_gap": {
+      "mean": 0.6852,
+      "std": 0.0571,
+      "min": 0.6166,
+      "max": 0.8121
+    },
+    "recall_bearish": {
+      "mean": 0.4092,
+      "std": 0.3015,
+      "min": 0.0161,
+      "max": 0.9348
+    },
+    "recall_neutral": {
+      "mean": 0.153,
+      "std": 0.192,
+      "min": 0.0,
+      "max": 0.7143
+    },
+    "recall_bullish": {
+      "mean": 0.4617,
+      "std": 0.2991,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "roc_auc_macro": {
+      "mean": 0.5172,
+      "std": 0.0489,
+      "min": 0.4345,
+      "max": 0.6018
+    },
+    "pr_auc_macro": {
+      "mean": 0.3713,
+      "std": 0.0429,
+      "min": 0.3024,
+      "max": 0.4688
+    },
+    "log_loss": {
+      "mean": 1.3482,
+      "std": 0.1697,
+      "min": 1.0534,
+      "max": 1.5821
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.1172,
+      "std": 0.0817,
+      "min": -0.0409,
+      "max": 0.2513
+    },
+    "pct_folds_beating_baseline": 0.875,
+    "model": "xgboost"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.3308,
+      "std": 0.0526,
+      "min": 0.2523,
+      "max": 0.4145
+    },
+    "accuracy": {
+      "mean": 0.3609,
+      "std": 0.0494,
+      "min": 0.2772,
+      "max": 0.4402
+    },
+    "overfit_gap": {
+      "mean": -0.1132,
+      "std": 0.0471,
+      "min": -0.2058,
+      "max": -0.0502
+    },
+    "recall_bearish": {
+      "mean": 0.3279,
+      "std": 0.1184,
+      "min": 0.1176,
+      "max": 0.5
+    },
+    "recall_neutral": {
+      "mean": 0.2844,
+      "std": 0.2082,
+      "min": 0.0526,
+      "max": 0.8571
+    },
+    "recall_bullish": {
+      "mean": 0.4268,
+      "std": 0.1182,
+      "min": 0.1,
+      "max": 0.5333
+    },
+    "roc_auc_macro": {
+      "mean": 0.5097,
+      "std": 0.0375,
+      "min": 0.4435,
+      "max": 0.5672
+    },
+    "pr_auc_macro": {
+      "mean": 0.3415,
+      "std": 0.0176,
+      "min": 0.3136,
+      "max": 0.3688
+    },
+    "log_loss": {
+      "mean": 23.0347,
+      "std": 1.7819,
+      "min": 20.1766,
+      "max": 26.0533
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.1752,
+      "std": 0.0488,
+      "min": 0.0933,
+      "max": 0.2378
+    },
+    "pct_folds_beating_baseline": 1.0,
+    "model": "stacking"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2506,
+      "std": 0.0936,
+      "min": 0.1114,
+      "max": 0.4085
+    },
+    "accuracy": {
+      "mean": 0.343,
+      "std": 0.0926,
+      "min": 0.1768,
+      "max": 0.5217
+    },
+    "overfit_gap": {
+      "mean": 0.3695,
+      "std": 0.0941,
+      "min": 0.2297,
+      "max": 0.5301
+    },
+    "recall_bearish": {
+      "mean": 0.3484,
+      "std": 0.4025,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "recall_neutral": {
+      "mean": 0.3051,
+      "std": 0.3603,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "recall_bullish": {
+      "mean": 0.3859,
+      "std": 0.3299,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "roc_auc_macro": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null
+    },
+    "pr_auc_macro": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null
+    },
+    "log_loss": {
+      "mean": null,
+      "std": null,
+      "min": null,
+      "max": null
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.095,
+      "std": 0.1008,
+      "min": -0.0592,
+      "max": 0.287
+    },
+    "pct_folds_beating_baseline": 0.875,
+    "model": "voting_hard"
+  },
+  {
+    "n_folds": 16,
+    "f1_macro": {
+      "mean": 0.2887,
+      "std": 0.0598,
+      "min": 0.1513,
+      "max": 0.3841
+    },
+    "accuracy": {
+      "mean": 0.3355,
+      "std": 0.0498,
+      "min": 0.2228,
+      "max": 0.4199
+    },
+    "overfit_gap": {
+      "mean": 0.6929,
+      "std": 0.059,
+      "min": 0.6041,
+      "max": 0.8296
+    },
+    "recall_bearish": {
+      "mean": 0.3894,
+      "std": 0.2716,
+      "min": 0.0227,
+      "max": 1.0
+    },
+    "recall_neutral": {
+      "mean": 0.1931,
+      "std": 0.1685,
+      "min": 0.0,
+      "max": 0.6667
+    },
+    "recall_bullish": {
+      "mean": 0.4165,
+      "std": 0.2278,
+      "min": 0.027,
+      "max": 0.8525
+    },
+    "roc_auc_macro": {
+      "mean": 0.5211,
+      "std": 0.0555,
+      "min": 0.4486,
+      "max": 0.6217
+    },
+    "pr_auc_macro": {
+      "mean": 0.3732,
+      "std": 0.0442,
+      "min": 0.3105,
+      "max": 0.4449
+    },
+    "log_loss": {
+      "mean": 1.2353,
+      "std": 0.1118,
+      "min": 1.1213,
+      "max": 1.5566
+    },
+    "f1_lift_vs_baseline": {
+      "mean": 0.1331,
+      "std": 0.0739,
+      "min": -0.0381,
+      "max": 0.2893
+    },
+    "pct_folds_beating_baseline": 0.9375,
+    "model": "gradient_boosting"
+  }
+]
