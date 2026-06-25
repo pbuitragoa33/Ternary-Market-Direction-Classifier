@@ -1,0 +1,20 @@
+{
+  "model": "voting_hard",
+  "best_params": {
+    "base_estimator": "decision_tree",
+    "base_dt_max_depth": 5
+  },
+  "best_f1_macro": 0.318215,
+  "best_accuracy": 0.373814,
+  "f1_macro_std": 0.011578,
+  "n_trials_completed": 500,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 950.7,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}

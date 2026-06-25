@@ -1,0 +1,25 @@
+{
+  "model": "xgboost",
+  "best_params": {
+    "n_estimators": 62,
+    "max_depth": 11,
+    "learning_rate": 0.20226878196441145,
+    "subsample": 0.9801783647203488,
+    "colsample_bytree": 0.6909451844782243,
+    "booster": "dart",
+    "reg_lambda": 2.8800244554144414
+  },
+  "best_f1_macro": 0.279578,
+  "best_accuracy": 0.344213,
+  "f1_macro_std": 0.06913,
+  "n_trials_completed": 64,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 3607.2,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}

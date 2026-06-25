@@ -1,0 +1,23 @@
+{
+  "model": "decision_tree",
+  "best_params": {
+    "criterion": "gini",
+    "max_depth": 10,
+    "min_samples_leaf": 1,
+    "min_samples_split": 10,
+    "class_weight": "none"
+  },
+  "best_f1_macro": 0.337916,
+  "best_accuracy": 0.376471,
+  "f1_macro_std": 0.007237,
+  "n_trials_completed": 500,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 142.5,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}

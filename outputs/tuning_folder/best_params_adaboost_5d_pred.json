@@ -1,0 +1,22 @@
+{
+  "model": "adaboost",
+  "best_params": {
+    "base_estimator": "decision_tree",
+    "base_dt_max_depth": 2,
+    "n_estimators": 101,
+    "learning_rate": 1.9821239376201607
+  },
+  "best_f1_macro": 0.339985,
+  "best_accuracy": 0.362429,
+  "f1_macro_std": 0.039013,
+  "n_trials_completed": 356,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 3604.6,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}

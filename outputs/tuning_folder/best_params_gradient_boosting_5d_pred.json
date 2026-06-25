@@ -1,0 +1,22 @@
+{
+  "model": "gradient_boosting",
+  "best_params": {
+    "n_estimators": 218,
+    "learning_rate": 0.20218499516556748,
+    "max_depth": 16,
+    "min_samples_leaf": 6
+  },
+  "best_f1_macro": 0.269298,
+  "best_accuracy": 0.3537,
+  "f1_macro_std": 0.035775,
+  "n_trials_completed": 4,
+  "n_trials_pruned": 0,
+  "cv_n_splits": 5,
+  "primary_metric": "f1_macro",
+  "optimization_time_sec": 4811.3,
+  "custom_weights": {
+    "0": 2,
+    "1": 1,
+    "2": 1
+  }
+}
