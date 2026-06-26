@@ -24,23 +24,23 @@ This coincides with the central bank liquidity injections (quantitative easing) 
 * With H = 1, the class balance is:
 
 | Class   | Label | Share |
-| ------- | :---: | ----: |
+| ------- | ----- | ----- |
 | Neutral |   1   | 39.5% |
 | Bullish |   2   | 33.0% |
 | Bearish |   0   | 27.5% |
 
-![Class Balance H = 1](.\outputs\EDA_content\Target_by_target_distribution.png)
+![Class Balance H = 1](../outputs/EDA_content/Target_by_target_distribution.png)
 
 
 * With H = 5, the class balance is:
 
 | Class   | Label | Share |
-| ------- | :---: | ----: |
+| ------- | ----- | ----- |
 | Neutral |   1   | 30.6% |
 | Bullish |   2   | 39.4% |
 | Bearish |   0   | 30.0% |
 
-![Class Balance H = 5](.\outputs\EDA_content\Target_by_target_distribution_for_5d_pred.png)
+![Class Balance H = 5](../outputs/EDA_content/Target_by_target_distribution_for_5d_pred.png)
 
 
 * Reference Baselines
@@ -174,3 +174,6 @@ This wall belongs to teh data, not the models. There is no exploitable next-day 
 The fact that the horizon was changed from 1 to 5 days was correct, but the answer is unequivocal: the problem was not the horizon. It is that BTC direction, with these features, is not predictable — neither at 1 nor at 5 days.
 
 It's not worth trying deep learning or transformer architectires, because the problem is not the model, it is the data. The features are not informative enough to predict BTC direction at these horizons.
+
+![Walkforward F1-macro Boxplot FOR 1-day](../outputs/walkforward/walkforward_f1_boxplot.png)
+![Walkforward F1-macro Boxplot FOR 5-day](../outputs/walkforward/walkforward_5d_f1_boxplot.png)
