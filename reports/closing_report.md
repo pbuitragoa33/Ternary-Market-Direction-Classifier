@@ -186,6 +186,15 @@ Out of sample predictions traded with 5 bps/side costs against Buy and Hold refe
 
 This is fully consistent with the project's own earlier EDA (feature lifts of only ~1.2×, Bearish near-unpredictable) and with efficient-market evidence that short-horizon direction of a liquid asset approximates a random walk.
 
+##### Equity Curve KNN Strategy  (H = 1)
+
+![Equity Curve KNN Strategy](../outputs\strategies\equity_knn_H1.png)
+
+##### Equity Curve Stacking Strategy  (H = 5)
+
+![Equity Curve Stacking Strategy](../outputs\strategies\equity_stacking_H5.png)
+
+
 ## 8. Why this is a valid result, not a failure
 
 A correctly measured "no edge" answers the research question definitively. The value of this project is not a profitable model — it is a rigorously established negative, obtained by avoiding every common trap:
