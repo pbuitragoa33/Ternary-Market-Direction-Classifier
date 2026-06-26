@@ -170,6 +170,7 @@ Important modeling choices:
 ```text
 .
 |-- README.md
+|-- CLAUDE.md
 |-- pyproject.toml
 |-- requirements.txt
 |-- configs/
@@ -245,8 +246,6 @@ The project starts by collecting daily BTC and related market data:
 - Cross-asset prices such as VIX, gold, oil, TLT, RSP, TNX, IWM, UUP, MSTR, and SPY.
 - FRED macro/rates indicators including inflation expectations, yield-curve spreads, credit spreads, effective Fed funds, and financial stress measures.
 - External crypto and macro series such as BTC dominance, total crypto market cap, USDT dominance, M2, and Baltic Dry Index.
-
-The ingestion layer writes source data to `s3://<bucket>/raw/`.
 
 ### 2. Feature Engineering
 
