@@ -4,9 +4,9 @@ The data and whole process was analyzed from the idea of getting an edge for the
 
 2 experiments were conducted:
 
-* **Experiment 1:** Next day (horizon = 1) BTC price-direction classification with hyperparameter tuning and walk-forward validation across 9 model families.
+* **Experiment 1:** Next day (horizon = 1) BTC price-direction classification with hyperparameter tuning and walk-forward validation across 9 model families. The target depends if the return was above/below/equal to 1%.
 
-* **Experiment 2:** 5 day (horizon = 5) BTC price-direction classification with hyperparameter tuning and walk-forward validation across 9 model families.
+* **Experiment 2:** 5 day (horizon = 5) BTC price-direction classification with hyperparameter tuning and walk-forward validation across 9 model families.The target depends if the return was above/below/equal to 2%.
 
 
 ## 1. Problem Definition
