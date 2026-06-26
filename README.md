@@ -2,11 +2,17 @@
 
 **A research-grade BTC direction classification pipeline with S3 medallion storage, HMM regime features, temporal validation, and cost-aware backtesting.**
 
-TMDC tests whether short-horizon Bitcoin market direction can be predicted as one of three states: `Bearish`, `Neutral`, or `Bullish`. The project runs two parallel prediction horizons: next-day direction (`H=1`) and 5-day direction (`H=5`). It starts from market and macro data, builds engineered features, stores intermediate datasets in AWS S3, trains multiple classifiers, validates them through walk-forward testing, and finally asks the only question that matters in trading: does the signal survive transaction costs and beat Buy & Hold?
+TMDC tests whether short-horizon Bitcoin market direction can be predicted as one of three states: `Bearish`, `Neutral`, or `Bullish`. The project runs two parallel prediction horizons: next-day direction (`H = 1`) and 5-day direction (`H = 5`). It starts from market and macro data, builds engineered features, stores intermediate datasets in AWS S3, trains multiple classifiers, validates them through walk-forward testing, and finally asks the only question that matters in trading: does the signal survive transaction costs and beat Buy & Hold?
 
 The final answer is deliberately rigorous: the directional hypothesis is rejected. The models do not show exploitable short-horizon directional edge after temporal validation and cost-aware backtesting. That negative result is the main contribution of the project.
 
 > Research only. This repository is not financial advice, not a trading recommendation, and not a production trading system.
+
+---
+
+## Project Overview
+
+![TMDC architecture diagram](project_forefront.png)
 
 ---
 
@@ -386,11 +392,6 @@ python src/data-operations/01_data_supply.py
 python src/data-operations/02_data_target_supply.py
 ```
 
-| Script | Input | Transformation | Output | Purpose |
-| --- | --- | --- | --- | --- |
-| `01_data_supply.py` | Yahoo Finance, FRED, external source URLs | Downloads market, macro, and external features | `raw/data_yf.csv`, `raw/data_fred.csv`, external raw files | Build the raw feature universe. |
-| `02_data_target_supply.py` | Yahoo Finance `BTC-USD` | Downloads adjusted BTC OHLCV | `raw/btc_target_data.csv` | Create the base asset series used for targets and BTC-derived features. |
-
 ### 2. Silver Feature Construction For H = 1
 
 ```powershell
@@ -403,16 +404,6 @@ python src/data-operations/08_data_unification.py
 python src/data-operations/09_feature_HMM_regime.py
 ```
 
-| Script | Input Layer | Main Work | Output Layer | Why It Exists |
-| --- | --- | --- | --- | --- |
-| `03_derived_indicators.py` | `raw/btc_target_data.csv` | Builds BTC technical indicators and categorical market-state features | `silver/` | Converts raw OHLCV into predictive candidate features. |
-| `04_external_data_consolidation.py` | Raw external crypto/macro files | Filters, cleans, and consolidates external series | `silver/` | Adds crypto market breadth and liquidity context. |
-| `05_target_var_treatment.py` | `raw/btc_target_data.csv` | Creates H = 1 `Future_Return` and ternary `Target` | `silver/` | Defines the next-day classification problem. |
-| `06_financial_assets_processing.py` | `raw/data_yf.csv` | Cleans cross-asset closes | `silver/` | Adds market context beyond BTC. |
-| `07_fred_data_completion.py` | `raw/data_fred.csv` | Completes and merges macro/rates series | `silver/` | Adds macro regime and stress indicators. |
-| `08_data_unification.py` | Silver technical, target, macro, external, cross-asset data | Merges all H = 1 features by date | `silver/data_unified.csv` | Produces the modeling base table. |
-| `09_feature_HMM_regime.py` | `silver/data_unified.csv` | Trains HMM regime models and appends regime labels | `silver/data_enriched.csv`, `models/hmm_artifacts.joblib` | Adds latent market-state features. |
-
 ### 3. Silver Feature Construction For H = 5
 
 Run after the shared H = 1 data supply and unification foundation exists.
@@ -423,23 +414,12 @@ python src/data-operations/11_data_unification_5d_pred.py
 python src/data-operations/12_feature_HMM_regime_5d_pred.py
 ```
 
-| Script | Input Layer | Main Work | Output Layer | Why It Exists |
-| --- | --- | --- | --- | --- |
-| `10_target_var_treatment_5d_pred.py` | `raw/btc_target_data.csv` | Creates 5-day `Future_Return` and ternary `Target` | `silver/` | Defines the wider-horizon classification problem. |
-| `11_data_unification_5d_pred.py` | Silver features and H = 5 target | Merges the 5-day target with the feature universe | `silver/5d_pred_data_unified.csv` | Builds the H = 5 modeling table. |
-| `12_feature_HMM_regime_5d_pred.py` | `silver/5d_pred_data_unified.csv` | Adds HMM regime features for H = 5 pipeline | `silver/5d_pred_data_enriched.csv`, `models/5d_pred_hmm_artifacts.joblib` | Keeps H = 5 independent from H = 1 artifacts. |
-
 ### 4. ML-Ready Processing
 
 ```powershell
 python src/data-processing/processing_pipeline.py
 python src/data-processing/processing_pipeline_5d_pred.py
 ```
-
-| Script | Input | Processing | Output |
-| --- | --- | --- | --- |
-| `processing_pipeline.py` | `silver/data_enriched.csv` | Drop leakage, transform features, split by date, encode, scale | `gold/X_train.csv`, `gold/y_train.csv`, `gold/X_validation.csv`, `gold/y_validation.csv`, `gold/X_test.csv`, `gold/y_test.csv` |
-| `processing_pipeline_5d_pred.py` | `silver/5d_pred_data_enriched.csv` | Same processing logic for H=5 | `gold/X_train_5d.csv`, `gold/y_train_5d.csv`, `gold/X_validation_5d.csv`, `gold/y_validation_5d.csv`, `gold/X_test_5d.csv`, `gold/y_test_5d.csv` |
 
 Artifacts:
 
@@ -453,11 +433,6 @@ Artifacts:
 python src/tuning_training_evaluation/temporal_split_tuning.py
 python src/tuning_training_evaluation/temporal_split_tuning_5d_pred.py
 ```
-
-| Script | Input | Work | Output |
-| --- | --- | --- | --- |
-| `temporal_split_tuning.py` | H = 1 gold training split | Optuna studies with `TimeSeriesSplit(5)` | `outputs/tuning_folder/best_params_*.json`, `study_*.joblib`, Optuna plots |
-| `temporal_split_tuning_5d_pred.py` | H = 5 gold training split | Same tuning process for H = 5 | `outputs/tuning_folder/best_params_*_5d_pred.json`, `study_*_5d_pred.joblib`, Optuna plots |
 
 W&B tracking:
 
@@ -475,20 +450,11 @@ python src/tuning_training_evaluation/walk_forward_train_eval.py
 python src/tuning_training_evaluation/walk_forward_train_eval_5d_pred.py
 ```
 
-| Script | Input | Work | Output |
-| --- | --- | --- | --- |
-| `walk_forward_train_eval.py` | H = 1 gold train, validation, test plus tuned params | Rebuilds models and evaluates 16 rolling OOS folds | `outputs/walkforward/walkforward_*.csv`, `walkforward_summary.json`, dashboards, F1 boxplot |
-| `walk_forward_train_eval_5d_pred.py` | H = 5 gold train, validation, test plus tuned params | Same process for H = 5 | `outputs/walkforward/walkforward_5d_*.csv`, `walkforward_5d_summary.json`, dashboards, F1 boxplot |
-
 ### 7. Cost-Aware Backtesting
 
 ```powershell
 python src/backtesting/models_backtesting.py
 ```
-
-| Input | Work | Output | Final Question |
-| --- | --- | --- | --- |
-| Gold features, tuned params, raw Close prices from silver enriched data | Recreates OOS predictions, maps classes to positions, applies trading costs | `outputs/strategies/backtest_summary.json`, equity curves, trade summaries | Does the strategy beat Buy & Hold after costs? |
 
 Configured experiments:
 
@@ -701,6 +667,8 @@ The H = 1 strategy lost more than half of capital while Buy & Hold rose almost 9
 ### 4. Weights and Biases Report
 
 [Report Link](https://wandb.ai/buitragopablo19-upb-bogot-/TMDC_temporal_tuning/reports/TMDC-Report--VmlldzoxNzM1MjM0MA?accessToken=76ed8n9w9wq6z9d3yfkatqrhmccjcfobenlt5vqudnkgtfs7lszdmfwsgzug6ead)
+
+---
 
 ### Final Conclusion
 
