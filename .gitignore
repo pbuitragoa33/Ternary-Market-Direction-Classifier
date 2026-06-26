@@ -431,6 +431,7 @@ ternary_market_direction_classifier.egg-info
 
 # Strategy stuff (AI generated code, not worth tracking and impossible results → leakage)
 strategies/
+backtesting/
 close_target_strategy.py
 
 # Weights and Biases files
