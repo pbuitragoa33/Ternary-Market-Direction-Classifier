@@ -431,6 +431,9 @@ ternary_market_direction_classifier.egg-info
 
 # Strategy stuff (AI generated code, not worth tracking and impossible results → leakage)
 strategies/
+!strategies/equity_knn_H1.png
+!strategies/equity_stacking_H5.png
+
 backtesting/
 close_target_strategy.py
 
