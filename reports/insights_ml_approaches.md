@@ -6,7 +6,16 @@ The data and whole process was analyzed from the idea of getting an edge for the
 
 * **Experiment 1:** Next day (horizon = 1) BTC price-direction classification with hyperparameter tuning and walk-forward validation across 9 model families. The target depends if the return was above/below/equal to 1%.
 
+Bullish: Day Return > 1%
+Bearish: Day Return < -1%
+Neutral: -1% <= Day Return <= 1%
+
+
 * **Experiment 2:** 5 day (horizon = 5) BTC price-direction classification with hyperparameter tuning and walk-forward validation across 9 model families.The target depends if the return was above/below/equal to 2%.
+
+Bullish: 5-Day Return > 2%
+Bearish: 5-Day Return < -2%
+Neutral: -2% <= 5-Day Return <= 2%
 
 
 ## 1. Problem Definition
