@@ -1,0 +1,42 @@
+{
+  "knn_H1": {
+    "n_periods": 2813,
+    "ann_factor": 365,
+    "total_return_pct": -52.54,
+    "cagr_pct": -9.22,
+    "vol_ann_pct": 52.02,
+    "sharpe": 0.08,
+    "sortino": 0.083,
+    "max_drawdown_pct": -88.02,
+    "calmar": -0.105,
+    "win_rate_pct": 27.44,
+    "profit_factor": 1.017,
+    "exposure_pct": 54.92,
+    "n_trades": 809,
+    "total_costs_pct": 53.8,
+    "bh_total_return_pct": 894.77,
+    "bh_cagr_pct": 34.73,
+    "bh_sharpe": 0.795,
+    "bh_max_drawdown_pct": -76.63
+  },
+  "stacking_H5": {
+    "n_periods": 562,
+    "ann_factor": 73.0,
+    "total_return_pct": -86.03,
+    "cagr_pct": -22.56,
+    "vol_ann_pct": 54.35,
+    "sharpe": -0.191,
+    "sortino": -0.234,
+    "max_drawdown_pct": -97.68,
+    "calmar": -0.231,
+    "win_rate_pct": 38.26,
+    "profit_factor": 0.933,
+    "exposure_pct": 73.67,
+    "n_trades": 309,
+    "total_costs_pct": 22.5,
+    "bh_total_return_pct": 832.15,
+    "bh_cagr_pct": 33.64,
+    "bh_sharpe": 0.782,
+    "bh_max_drawdown_pct": -76.0
+  }
+}
