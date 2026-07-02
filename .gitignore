@@ -439,3 +439,6 @@ close_target_strategy.py
 
 # Weights and Biases files
 wandb/
+
+# Model TabFM script
+temporal_split_tabfm.py
